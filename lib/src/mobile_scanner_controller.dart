@@ -351,7 +351,19 @@ class MobileScannerController {
         zoomScaleState.value = data as double? ?? 0.0;
         break;
       case 'barcode':
-        if (data == null) return;
+        // if (data == null) return;
+        if (data == null) {
+          _barcodesController.add(
+            BarcodeCapture(
+              raw: data,
+              barcodes: [],
+              image: event['image'] as Uint8List?,
+              width: event['width'] as double?,
+              height: event['height'] as double?,
+            ),
+          );
+        }
+
         final parsed = (data as List)
             .map((value) => Barcode.fromNative(value as Map))
             .toList();
