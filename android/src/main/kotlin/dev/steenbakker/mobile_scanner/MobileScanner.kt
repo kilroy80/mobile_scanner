@@ -82,14 +82,14 @@ class MobileScanner(
                     }
                 }
 
-                if (barcodeMap.isNotEmpty()) {
+//                if (barcodeMap.isNotEmpty()) {
                     mobileScannerCallback(
                         barcodeMap,
                         if (returnImage) mediaImage.toByteArray() else null,
                         if (returnImage) mediaImage.width else null,
                         if (returnImage) mediaImage.height else null
                     )
-                }
+//                }
             }
             .addOnFailureListener { e ->
                 mobileScannerErrorCallback(
